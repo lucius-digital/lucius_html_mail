@@ -1,0 +1,9 @@
+lucius_html_mail.test:
+  path: '/send_test_mail'
+  defaults:
+    _controller: '\Drupal\lucius_html_mail\Controller\MailController::sendTestMail'
+    _title: 'Test mail page, refresh to try again'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _permission: 'access content'

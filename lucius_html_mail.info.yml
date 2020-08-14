@@ -1,0 +1,5 @@
+name: 'Lucius HTML mail example'
+type: module
+description: 'Example module for sending HTML mail programmatically'
+core_version_requirement: '^8.8 || ^9'
+package: 'Custom'

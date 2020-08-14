@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains lucius_html_mail.module.
+ */
+
+
+/**
+ * Implements hook_mail().
+ *
+ */
+function lucius_html_mail_mail($key, &$message, $params) {
+
+  $site_name = \Drupal::config('system.site')->get('name');
+  $site_mail = \Drupal::config('system.site')->get('mail');
+
+  switch ($key) {
+    case 'lucius_html_mail':
+      $message['headers']['Reply-To'] = $site_mail;
+      $message['headers']['Content-Type'] = 'text/html';
+      $message['headers']['From'] = $site_name .'<' . $site_mail . '>';
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['body'];
+      $message['cta_url'] = $params['cta_url'];
+      $message['cta_text'] = $params['cta_text'];
+      $message['bold_text'] = $params['bold_text'];
+      $message['lower_body'] = $params['lower_body'];
+      $message['sender_name'] = $params['sender_name'];
+      $message['name_recipient'] = $params['name_recipient'];
+      $message['base_url'] = $params['base_url'];
+      break;
+  }
+}
+
+

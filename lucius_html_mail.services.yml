@@ -1,0 +1,4 @@
+services:
+  lucius_html_mail.mail:
+    class: Drupal\lucius_html_mail\Services\LuciusMail
+    arguments: ['@plugin.manager.mail','@current_user']
